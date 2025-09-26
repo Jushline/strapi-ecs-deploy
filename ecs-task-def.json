@@ -1,106 +1,62 @@
 {
-    "compatibilities": [
-        "EC2",
-        "FARGATE"
-    ],
-    "containerDefinitions": [
+  "family": "strapi-app-jushline",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::884740154069:role/strapi-app-jushline-ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::884740154069:role/strapi-app-jushline-ecsTaskExecutionRole",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "containerDefinitions": [
+    {
+      "name": "strapi-app-jushline",
+      "image": "123456789012.dkr.ecr.ap-south-1.amazonaws.com/strapi-repo:latest",
+      "essential": true,
+      "portMappings": [
         {
-            "cpu": 0,
-            "environment": [
-                {
-                    "name": "API_TOKEN_SALT",
-                    "value": "somerandomsalt"
-                },
-                {
-                    "name": "APP_KEYS",
-                    "value": "key1,key2,key3,key4"
-                },
-                {
-                    "name": "PORT",
-                    "value": "1337"
-                },
-                {
-                    "name": "ADMIN_JWT_SECRET",
-                    "value": "somesecretjwt"
-                },
-                {
-                    "name": "HOST",
-                    "value": "0.0.0.0"
-                },
-                {
-                    "name": "TRANSFER_TOKEN_SALT",
-                    "value": "transfersecret"
-                },
-                {
-                    "name": "ENCRYPTION_KEY",
-                    "value": "encryptionsecret"
-                }
-            ],
-            "essential": true,
-            "image": "${{ env.image }}"
-,
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/strapi-app-jushline",
-                    "awslogs-region": "ap-south-1",
-                    "awslogs-stream-prefix": "strapi-app-jushline"
-                }
-            },
-            "mountPoints": [],
-            "name": "strapi-app-jushline",
-            "portMappings": [
-                {
-                    "containerPort": 1337,
-                    "hostPort": 1337,
-                    "protocol": "tcp"
-                }
-            ],
-            "systemControls": [],
-            "volumesFrom": []
+          "containerPort": 1337,
+          "protocol": "tcp"
         }
-    ],
-    "cpu": "512",
-    "executionRoleArn": "arn:aws:iam::884740154069:role/strapi-app-jushline-ecsTaskExecutionRole",
-    "family": "strapi-app-jushline",
-    "memory": "1024",
-    "networkMode": "awsvpc",
-    "placementConstraints": [],
-    "registeredAt": "2025-09-26T02:51:08.412Z",
-    "registeredBy": "arn:aws:iam::884740154069:user/terraform-user",
-    "requiresAttributes": [
+      ],
+      "environment": [
         {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+          "name": "API_TOKEN_SALT",
+          "value": "somerandomsalt"
         },
         {
-            "name": "ecs.capability.execution-role-awslogs"
+          "name": "APP_KEYS",
+          "value": "key1,key2,key3,key4"
         },
         {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
+          "name": "PORT",
+          "value": "1337"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+          "name": "ADMIN_JWT_SECRET",
+          "value": "somesecretjwt"
         },
         {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
+          "name": "HOST",
+          "value": "0.0.0.0"
         },
         {
-            "name": "ecs.capability.execution-role-ecr-pull"
+          "name": "TRANSFER_TOKEN_SALT",
+          "value": "transfersecret"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
+          "name": "ENCRYPTION_KEY",
+          "value": "encryptionsecret"
         }
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "revision": 9,
-    "status": "ACTIVE",
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:884740154069:task-definition/strapi-app-jushline:9",
-    "taskRoleArn": "arn:aws:iam::884740154069:role/strapi-app-jushline-ecsTaskExecutionRole",
-    "volumes": [],
-    "tags": []
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/strapi-app-jushline",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "strapi-app-jushline"
+        }
+      }
+    }
+  ]
 }
