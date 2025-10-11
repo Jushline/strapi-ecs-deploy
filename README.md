@@ -1,8 +1,8 @@
-# Task 7 - Deploy Strapi on AWS ECS Fargate using GitHub Actions
+# Deploy Strapi on AWS ECS Fargate using GitHub Actions
 
 This task automates the deployment of a Strapi application to AWS ECS Fargate.  
-The infrastructure (VPC, ECS Cluster, ECS Service, ALB, Security Groups) is already created in Task 6 using Terraform.  
-Task 7 focuses on automating application deployment using GitHub Actions.
+The infrastructure (VPC, ECS Cluster, ECS Service, ALB, Security Groups) is already created using Terraform.  
+so this focuses on automating application deployment using GitHub Actions.
 
 ---
 
